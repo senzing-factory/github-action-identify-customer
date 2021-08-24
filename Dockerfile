@@ -1,9 +1,9 @@
 FROM python:latest
 
-COPY /script.py /
+COPY /send-to-slack.py /
 
 RUN pip install \
   slackclient
   
 WORKDIR /
-ENTRYPOINT ["/script.py"]
+ENTRYPOINT ["/send-to-slack.py"]
