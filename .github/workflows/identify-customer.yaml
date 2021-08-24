@@ -24,7 +24,7 @@ jobs:
       env:
           BOOL: ${{ contains( env.MEMBER_LIST, env.CREATOR ) }}
       if: ${{ env.BOOL == 'false' }}
-      uses: SamMacy/Get-issue-creator@master
+      uses: Senzing/github-action-identify-customer@issue-3.macy.1
   automate-issues-labels:
     runs-on: ubuntu-latest
     steps:
