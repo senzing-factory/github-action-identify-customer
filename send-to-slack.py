@@ -16,7 +16,7 @@ issue = "https://github.com/" +repo + "/issues/" + issue_number
 
 slack_client = slack.WebClient(token=slack_bearer_token)
 
-slack_message = ">New customer submitted issue \"" + title + "\">/n Created by " +  maker + " in <" + repo_url + "|" + repo+ "> issue number <" + issue + "|" + issue_number + ">"
+slack_message = ">New customer submitted issue \"" + title + "\">/n Created by " +  maker + " in <" + repo_url + "|" + repo + "> issue #<" + issue + "|" + issue_number + ">"
 
 response = slack_client.chat_postMessage(
                 channel=slack_channel,
