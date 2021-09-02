@@ -17,9 +17,6 @@ user_url = "https://github.com/" + maker
 
 print(os.getenv('GITHUB_PATH'))
 print(os.getenv('GITHUB_WORKSPACE'))
-
-with open('/github/workspace/README.md') as f:
-    lines = f.readlines()
     
 hash_json = json.loads(slack_string)
 
