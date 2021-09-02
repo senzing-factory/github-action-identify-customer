@@ -11,6 +11,7 @@ title = os.getenv('TITLE')
 slack_channel = "Playground"
 repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
+user_url = "https://github.com/" + maker
 
 # Create a client that communicates with Slack.
 
