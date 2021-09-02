@@ -15,7 +15,7 @@ repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 
-with open('/github/workspace/.github/CODEOWNERS') as f:
+with open('/github/workspace/README.md') as f:
     lines = f.readlines()
     
 hash_json = json.loads(slack_string)
