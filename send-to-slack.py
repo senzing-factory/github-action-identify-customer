@@ -24,7 +24,7 @@ slack_client = slack.WebClient(token=slack_bearer_token)
 
 #slack_message = ">New customer submitted issue \"" + title + "\">/n Created by " +  maker + " in <" + repo_url + "|" + repo + "> issue <#" + issue + "|" + issue_number + ">"
 
-slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + maker + "|" + user_url + ">\n  *Issue:* <" + title + "|" + issue + ">\n  *Attention*: "
+slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
 
 for user in slack_users:
   for ID in user:
