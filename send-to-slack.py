@@ -2,23 +2,32 @@
 
 import slack
 import os 
+import json
 
 slack_bearer_token = os.getenv('TOKEN')
 repo = os.getenv('REPO_URL')
 issue_number = os.getenv('NUMBER')
 maker = os.getenv('CREATOR')
 title = os.getenv('TITLE')
+slack_string = os.getenv('SLACK_HASHES')
 slack_channel = "Playground"
 repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 
+slack_users = json.loads(slack_string)
+
 # Create a client that communicates with Slack.
 
 slack_client = slack.WebClient(token=slack_bearer_token)
 
-slack_message = ">New customer submitted issue \"" + title + "\">/n Created by " +  maker + " in <" + repo_url + "|" + repo + "> issue <#" + issue + "|" + issue_number + ">"
+#slack_message = ">New customer submitted issue \"" + title + "\">/n Created by " +  maker + " in <" + repo_url + "|" + repo + "> issue <#" + issue + "|" + issue_number + ">"
 
+slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + maker + "|" + user_url + ">\n  *Issue:* <" + title + "|" + issue + ">\n  *Attention*: "
+
+for ID in slack_users:
+  slack_message = slack_message + "@<" + ID + ">"
+  
 response = slack_client.chat_postMessage(
                 channel=slack_channel,
                 text=slack_message
