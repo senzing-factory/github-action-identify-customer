@@ -17,7 +17,7 @@ user_url = "https://github.com/" + maker
 
 hash_json = json.loads(slack_string)
 
-
+slack_users = has_json['Senzing/senzing-engineering']
 # Create a client that communicates with Slack.
 
 slack_client = slack.WebClient(token=slack_bearer_token)
