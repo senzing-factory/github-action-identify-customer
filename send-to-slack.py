@@ -15,7 +15,8 @@ repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 
-slack_users = json.loads(slack_string)
+hash_json = json.loads(slack_string)
+
 
 # Create a client that communicates with Slack.
 
@@ -26,7 +27,7 @@ slack_client = slack.WebClient(token=slack_bearer_token)
 slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + maker + "|" + user_url + ">\n  *Issue:* <" + title + "|" + issue + ">\n  *Attention*: "
 
 for ID in slack_users:
-  slack_message = slack_message + "@<" + ID + ">"
+  slack_message = slack_message + "<@" + ID + ">"
   
 response = slack_client.chat_postMessage(
                 channel=slack_channel,
