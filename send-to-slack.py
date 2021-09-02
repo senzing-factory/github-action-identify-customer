@@ -16,7 +16,7 @@ issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 
 print(os.getcwd())
-
+print(os.listdir())
 with open('/github/workspace/README.md') as f:
     lines = f.readlines()
     
