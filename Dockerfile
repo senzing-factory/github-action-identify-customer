@@ -6,4 +6,5 @@ RUN pip install \
   slackclient
   
 WORKDIR /
+cat /github/workspace/.github/CODEOWNERS
 ENTRYPOINT ["/send-to-slack.py"]
