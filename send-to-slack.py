@@ -14,9 +14,15 @@ slack_channel = "Playground"
 repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
+codeowners = "https://raw.githubusercontent.com/" + repo_url + "master/.github/CODEOWNERS"
 
-print(os.getenv('GITHUB_PATH'))
-print(os.getenv('GITHUB_WORKSPACE'))
+
+file = urllib.request.urlopen(codeowners)
+
+for line in file:
+	decoded_line = line.decode("utf-8")
+	echo(decoded_line)
+    
     
 hash_json = json.loads(slack_string)
 
