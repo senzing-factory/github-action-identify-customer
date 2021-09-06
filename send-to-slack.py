@@ -15,7 +15,7 @@ slack_channel = "Playground"
 repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
-codeowners = "https://raw.githubusercontent.com/" + repo_url + "master/.github/CODEOWNERS"
+codeowners = "https://raw.githubusercontent.com/" + repo_url + "/master/.github/CODEOWNERS"
 
 
 file = urllib.request.urlopen(codeowners)
