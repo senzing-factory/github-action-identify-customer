@@ -75,7 +75,4 @@ for key in user_json:
  slack_message = "<@" + key + ">"
   
 print(slack_message)
-#response = slack_client.chat_postMessage(
-                channel=slack_channel,
-                text=slack_message
-            )
+#response = slack_client.chat_postMessage( channel=slack_channel, text=slack_message )
