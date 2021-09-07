@@ -8,7 +8,7 @@ import json
 slack_bearer_token = os.getenv('TOKEN')
 repo = os.getenv('REPO_URL')
 issue_number = os.getenv('NUMBER')
-maker = os.getenv('CREATOR')
+a = os.getenv('CREATOR')
 title = os.getenv('TITLE')
 slack_string = os.getenv('SLACK_HASHES')
 slack_channel = "Playground"
@@ -18,7 +18,7 @@ user_url = "https://github.com/" + maker
 codeowners_url = "https://raw.githubusercontent.com/" + repo + "/master/.github/CODEOWNERS"
 codeowners = "{ "
 count = 1
-hash_json = json.loads(slack_string)
+hash_map = json.loads(slack_string)
 file = urllib.request.urlopen(codeowners_url)
 
 for line in file:
