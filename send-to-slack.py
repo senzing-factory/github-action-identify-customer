@@ -21,6 +21,7 @@ printmap = "{"
 codeowners = "{ "
 count = 1
 
+print(codeowners_url)
 
 hash_json = json.loads(slack_string)
 file = urllib.request.urlopen(codeowners_url)
