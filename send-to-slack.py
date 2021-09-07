@@ -33,9 +33,8 @@ codeowners = codeowners + "}"
 
 codeowners_json = json.loads(codeowners)
 
-#slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
+slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
 
-slack_message = "Test message"
 count = 1
 for name in codeowners_json:
   value = codeowners_json[name]
