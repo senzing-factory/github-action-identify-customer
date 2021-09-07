@@ -8,7 +8,7 @@ import json
 slack_bearer_token = os.getenv('TOKEN')
 repo = os.getenv('REPO_URL')
 issue_number = os.getenv('NUMBER')
-a = os.getenv('CREATOR')
+maker = os.getenv('CREATOR')
 title = os.getenv('TITLE')
 slack_string = os.getenv('SLACK_HASHES')
 slack_channel = "Playground"
