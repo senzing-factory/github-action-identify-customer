@@ -71,11 +71,11 @@ slack_client = slack.WebClient(token=slack_bearer_token)
 
 slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
 
-for user in slack_users:
-  for ID in user:
-    slack_message = slack_message + "" + ID + ""
+for key in user_json:
+ slack_message = "<@" + key + ">"
   
-response = slack_client.chat_postMessage(
+print(slack_message)
+#response = slack_client.chat_postMessage(
                 channel=slack_channel,
                 text=slack_message
             )
