@@ -18,7 +18,7 @@ issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 codeowners_url = "https://raw.githubusercontent.com/" + repo + "/master/.github/CODEOWNERS"
 codeowners = "{ "
-
+count = 1
 hash_json = json.loads(slack_string)
 file = urllib.request.urlopen(codeowners_url)
 
