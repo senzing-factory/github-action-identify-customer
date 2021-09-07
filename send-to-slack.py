@@ -33,8 +33,9 @@ codeowners = codeowners + "}"
 
 codeowners_json = json.loads(codeowners)
 
-slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
+#slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
 
+slack_message = "Test message"
 count = 1
 for name in codeowners_json:
   value = codeowners_json[name]
@@ -52,7 +53,4 @@ for name in codeowners_json:
 
 slack_client = slack.WebClient(token=slack_bearer_token)
 
-#slack_message = ">New customer submitted issue \"" + title + "\">/n Created by " +  maker + " in <" + repo_url + "|" + repo + "> issue <#" + issue + "|" + issue_number + ">"
-  
-print(slack_message)
-#response = slack_client.chat_postMessage( channel=slack_channel, text=slack_message )
+response = slack_client.chat_postMessage( channel=slack_channel, text=slack_message )
