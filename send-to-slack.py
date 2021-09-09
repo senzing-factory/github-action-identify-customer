@@ -16,38 +16,30 @@ repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 codeowners_url = "https://raw.githubusercontent.com/" + repo + "/master/.github/CODEOWNERS"
-codeowners = "{ "
-count = 1
 hash_map = json.loads(slack_string)
-file = urllib.request.urlopen(codeowners_url)
+result = []
 
-for line in file:
-    decoded_line = line.decode("utf-8")
-    if("@" in decoded_line):
-      name = decoded_line.split("@",1)[1]
-      codeowners = codeowners + "\"owners" + str(count) + "\":" + "\""+ name.strip() + "\","
-      count+=1
+codeowners = urllib.request.urlopen(codeowners_url)
 
-codeowners = codeowners[:-1]
-codeowners = codeowners + "}"
-
-codeowners_json = json.loads(codeowners)
-
+for line in codeowners:
+        decoded_line = line.decode('utf-8')
+        uncommented_line = decoded_line.split("#")[0]
+        split_line = uncommented_line.split()
+        for split in split_line:
+            key = split.replace("@","")
+            if key in SENZING_GITHUB_SLACK_MAP.keys():
+                values = SENZING_GITHUB_SLACK_MAP.get(key)
+                if type(values) != list:
+                    values = [values]
+                for value in values:
+                    if not value in result:
+                        result.append(value)
+    
 slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
 
-count = 1
-for name in codeowners_json:
-  value = codeowners_json[name]
-  
-  if "/" in value:
-    for ID in hash_map[value]:
-      if ID not in slack_message:
-        slack_message = slack_message + "<@" + ID + ">"
-        
-  else:
-    slack_message = slack_message + "<@" + hash_map[value] + ">"
-
-
+for value in result:
+    slack_message = slack_message + "<@" + value + ">"
+    
 # Create a client that communicates with Slack.
 
 slack_client = slack.WebClient(token=slack_bearer_token)
