@@ -36,7 +36,7 @@ for line in codeowners:
                     if not value in result:
                         result.append(value)
     
-slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n  *Customer*: <" + user_url + "|" + maker + ">\n  *Issue:* <" + issue + "|" + title + ">\n  *Attention*: "
+slack_message = "Customer created GitHub issue:\n*Repository:* <" + repo_url + "|" + repo + ">\n    *Customer*: <" + user_url + "|" + maker + ">\n    *Issue:* <" + issue + "|" + title + ">\n    *Attention*: "
 
 for value in result:
     slack_message = slack_message + "<@" + value + ">"
