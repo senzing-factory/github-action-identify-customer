@@ -16,8 +16,9 @@ repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
 codeowners_url = "https://raw.githubusercontent.com/" + repo + "/master/.github/CODEOWNERS"
-hash_map = json.loads(slack_string)
 result = []
+
+SENZING_GITHUB_SLACK_MAP = json.loads(slack_string)
 
 codeowners = urllib.request.urlopen(codeowners_url)
 
