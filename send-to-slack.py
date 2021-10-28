@@ -15,8 +15,14 @@ slack_channel = "community-notifications"
 repo_url = "https://github.com/" +repo
 issue = "https://github.com/" +repo + "/issues/" + issue_number
 user_url = "https://github.com/" + maker
-codeowners_url = "https://raw.githubusercontent.com/" + repo + "/main/.github/CODEOWNERS"
 result = []
+
+codeowners_url = "https://raw.githubusercontent.com/" + repo + "/main/.github/CODEOWNERS"
+try:
+  codeowners = urllib.request.urlopen(codeowners_url)
+except:
+  codeowners_url = "https://raw.githubusercontent.com/" + repo + "/master/.github/CODEOWNERS"
+  codeowners = urllib.request.urlopen(codeowners_url)
 
 SENZING_GITHUB_SLACK_MAP = json.loads(slack_string)
 
