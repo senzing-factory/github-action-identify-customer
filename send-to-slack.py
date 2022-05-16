@@ -21,7 +21,7 @@ codeowners_url = "https://raw.githubusercontent.com/" + repo + "/main/.github/CO
 try:
   codeowners = urllib.request.urlopen(codeowners_url)
 except:
-  codeowners_url = "https://raw.githubusercontent.com/" + repo + "/master/.github/CODEOWNERS"
+  codeowners_url = "https://raw.githubusercontent.com/" + repo + "/main/.github/CODEOWNERS"
   codeowners = urllib.request.urlopen(codeowners_url)
 
 SENZING_GITHUB_SLACK_MAP = json.loads(slack_string)
