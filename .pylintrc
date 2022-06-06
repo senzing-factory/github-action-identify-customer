@@ -1,0 +1,18 @@
+[pylint]
+disable=
+    bad-indentation,
+    bare-except,
+    consider-using-with,
+    import-error,
+    invalid-name,
+    line-too-long,
+    missing-module-docstring,
+    trailing-whitespace,
+    unidiomatic-typecheck,
+    wrong-import-order,
+good-names=
+    template-python
+ignore=
+    __init__.py,
+notes=
+    FIXME,
