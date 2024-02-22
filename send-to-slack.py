@@ -1,9 +1,9 @@
 #! /usr/bin/env python3
 
-import urllib
-import slack
-import os
 import json
+import os
+import slack
+import urllib.request
 
 slack_bearer_token = os.getenv("TOKEN")
 repo = os.getenv("REPO_URL")
@@ -12,23 +12,23 @@ maker = os.getenv("CREATOR")
 title = os.getenv("TITLE")
 slack_string = os.getenv("SLACK_HASHES")
 slack_channel = "community-notifications"
-repo_url = "https://github.com/" + repo
-issue = "https://github.com/" + repo + "/issues/" + issue_number
-user_url = "https://github.com/" + maker
+repo_url = "https://github.com/{}".format(repo)
+issue = "https://github.com/{}/issues/{}".format(repo,issue_number)
+user_url = "https://github.com/{}".format(maker)
 result = []
 
 codeowners_url = (
-    "https://raw.githubusercontent.com/" + repo + "/main/.github/CODEOWNERS"
+    "https://raw.githubusercontent.com/{}/main/.github/CODEOWNERS".format(repo)
 )
 try:
     codeowners = urllib.request.urlopen(codeowners_url)
 except:
     codeowners_url = (
-        "https://raw.githubusercontent.com/" + repo + "/main/.github/CODEOWNERS"
+        "https://raw.githubusercontent.com/{}/main/.github/CODEOWNERS".format(repo)
     )
     codeowners = urllib.request.urlopen(codeowners_url)
 
-SENZING_GITHUB_SLACK_MAP = json.loads(slack_string)
+SENZING_GITHUB_SLACK_MAP = json.loads(str(slack_string))
 
 codeowners = urllib.request.urlopen(codeowners_url)
 
@@ -48,18 +48,9 @@ for line in codeowners:
 
 slack_message = (
     "Customer created GitHub issue:\n*Repository:* <"
-    + repo_url
-    + "|"
-    + repo
-    + ">\n      *Customer*: <"
-    + user_url
-    + "|"
-    + maker
-    + ">\n      *Issue:* <"
-    + issue
-    + "|"
-    + title
-    + ">\n      *Attention*: "
+    "{0}|{1}>\n      *Customer*: <"
+    "{2}|{3}>\n      *Issue:* <"
+    "{4}|{5}>\n      *Attention*: ".format(repo_url,repo,user_url,maker,issue,title)
 )
 
 for value in result:
