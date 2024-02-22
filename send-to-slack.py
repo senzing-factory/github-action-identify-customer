@@ -3,6 +3,7 @@
 import json
 import os
 import urllib.request
+
 import slack
 
 slack_bearer_token = os.getenv("TOKEN")
@@ -43,7 +44,7 @@ for line in codeowners:
             if type(values) != list:
                 values = [values]
             for value in values:
-                if not value in result:
+                if value not in result:
                     result.append(value)
 
 slack_message = (
