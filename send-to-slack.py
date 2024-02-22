@@ -22,7 +22,7 @@ codeowners_url = "https://raw.githubusercontent.com/{}/main/.github/CODEOWNERS".
 )
 try:
     codeowners = urllib.request.urlopen(codeowners_url)
-except:
+except BaseException:
     codeowners_url = (
         "https://raw.githubusercontent.com/{}/main/.github/CODEOWNERS".format(repo)
     )
