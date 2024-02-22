@@ -2,8 +2,8 @@
 
 import json
 import os
-import slack
 import urllib.request
+import slack
 
 slack_bearer_token = os.getenv("TOKEN")
 repo = os.getenv("REPO_URL")
@@ -13,12 +13,12 @@ title = os.getenv("TITLE")
 slack_string = os.getenv("SLACK_HASHES")
 slack_channel = "community-notifications"
 repo_url = "https://github.com/{}".format(repo)
-issue = "https://github.com/{}/issues/{}".format(repo,issue_number)
+issue = "https://github.com/{}/issues/{}".format(repo, issue_number)
 user_url = "https://github.com/{}".format(maker)
 result = []
 
-codeowners_url = (
-    "https://raw.githubusercontent.com/{}/main/.github/CODEOWNERS".format(repo)
+codeowners_url = "https://raw.githubusercontent.com/{}/main/.github/CODEOWNERS".format(
+    repo
 )
 try:
     codeowners = urllib.request.urlopen(codeowners_url)
@@ -50,7 +50,9 @@ slack_message = (
     "Customer created GitHub issue:\n*Repository:* <"
     "{0}|{1}>\n      *Customer*: <"
     "{2}|{3}>\n      *Issue:* <"
-    "{4}|{5}>\n      *Attention*: ".format(repo_url,repo,user_url,maker,issue,title)
+    "{4}|{5}>\n      *Attention*: ".format(
+        repo_url, repo, user_url, maker, issue, title
+    )
 )
 
 for value in result:
