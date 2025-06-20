@@ -1,0 +1,20 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "alnum",
+    "buildx",
+    "CCLA",
+    "CODEOWNER",
+    "DOCKERHUB",
+    "ICLA",
+    "mypy",
+    "pydev",
+    "pylint",
+    "Senzing",
+    "slackclient",
+    "stackoverflow",
+    "toplevel"
+  ],
+  "ignorePaths": [".git/**", ".mypy_cache/**"]
+}
