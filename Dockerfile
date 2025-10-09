@@ -1,4 +1,4 @@
-FROM python:3@sha256:5b95b240f2db781f34a5da81e6e2301378495b3ab78d689df325c937be267e1c
+FROM python:3@sha256:d29cf0828933ed271be9234ca2c2d578c16f2911451418aacc4525ac04ac7114
 
 COPY /send-to-slack.py /
 
