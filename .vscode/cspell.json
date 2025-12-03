@@ -17,8 +17,5 @@
     "stackoverflow",
     "toplevel"
   ],
-  "ignorePaths": [
-    ".git/**",
-    ".mypy_cache/**"
-  ]
+  "ignorePaths": [".git/**", ".mypy_cache/**"]
 }
