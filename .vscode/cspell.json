@@ -2,19 +2,23 @@
   "version": "0.2",
   "language": "en",
   "words": [
-    "alnum",
-    "buildx",
     "CCLA",
     "CODEOWNER",
     "DOCKERHUB",
     "ICLA",
+    "Senzing",
+    "alnum",
+    "buildx",
+    "esbenp",
     "mypy",
     "pydev",
     "pylint",
-    "Senzing",
     "slackclient",
     "stackoverflow",
     "toplevel"
   ],
-  "ignorePaths": [".git/**", ".mypy_cache/**"]
+  "ignorePaths": [
+    ".git/**",
+    ".mypy_cache/**"
+  ]
 }
