@@ -1,3 +1,9 @@
+# Makefile for github-action-identify-customer
+
+# Detect the operating system, architecture, and container runtime.
+
+include makefiles/osdetect.mk
+
 # Git variables
 
 GIT_REPOSITORY_NAME := $(shell basename `git rev-parse --show-toplevel`)
@@ -19,12 +25,7 @@ default: help
 # Docker-based builds
 # -----------------------------------------------------------------------------
 
-.PHONY: docker-build
-docker-build:
-	docker build \
-		--tag $(DOCKER_IMAGE_NAME) \
-		--tag $(DOCKER_IMAGE_NAME):$(GIT_VERSION) \
-		.
+$(eval $(call container_build_target,docker-build,,$(GIT_VERSION)))
 
 # -----------------------------------------------------------------------------
 # Clean up targets
@@ -32,7 +33,7 @@ docker-build:
 
 .PHONY: docker-rmi-for-build
 docker-rmi-for-build:
-	-docker rmi --force \
+	-$(CONTAINER_RMI) \
 		$(DOCKER_IMAGE_NAME):$(GIT_VERSION) \
 		$(DOCKER_IMAGE_NAME)
 
